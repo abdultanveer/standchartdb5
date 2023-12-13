@@ -18,11 +18,11 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:onClick="clickHandler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="20dp"
+        android:onClick="clickHandler"
         android:text="login"
         app:layout_constraintStart_toStartOf="@+id/tvMessage"
         app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
@@ -32,10 +32,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
         android:hint="enter name"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@id/tvMessage"
-        app:layout_constraintStart_toStartOf="@id/tvMessage"
-         />
+        app:layout_constraintStart_toStartOf="@id/tvMessage" />
+
+    <Button
+        android:id="@+id/btnDial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:onClick="openDialer"
+        android:text="dial"
+        app:layout_constraintBaseline_toBaselineOf="@id/btnLogin"
+        app:layout_constraintLeft_toRightOf="@id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+
+    <Button
+        android:id="@+id/btnAlarm"
+        android:onClick="setAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="alarm"
+        app:layout_constraintBaseline_toBaselineOf="@id/btnLogin"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
