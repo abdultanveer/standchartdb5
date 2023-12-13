@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding.calculateButton.setOnClickListener {
             var cost =  binding.costOfService.text.toString()
             binding.tipResult.text = cost
+            //throw  NullPointerException("demo crash")
         }
     }
 
