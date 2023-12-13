@@ -34,9 +34,21 @@ class MainActivity : AppCompatActivity() {
        // calcButton.setOnClickListener {  }
         binding.calculateButton.setOnClickListener {
             var cost =  binding.costOfService.text.toString()
-            binding.tipResult.text = cost
+            var tip =  calculateTip(cost.toInt())
+
+            binding.tipResult.text = tip.toString()
             //throw  NullPointerException("demo crash")
         }
+    }
+
+    private fun calculateTip(cost: Int): Int {
+        var  c:Int =0
+        for (i in 1..10){
+            c  = i * 5
+        }
+
+        return cost/10
+
     }
 
     override fun onStart() {
