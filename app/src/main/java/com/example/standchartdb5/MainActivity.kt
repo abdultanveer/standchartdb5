@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.AlarmClock
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -12,6 +13,8 @@ import android.widget.TextView
 import com.example.standchartdb5.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    var TAG = MainActivity::class.java.simpleName
+        //"MainActivity"
     //TextView tvMsg;
     lateinit var tvMsg: TextView
     lateinit var etName: EditText
@@ -23,7 +26,7 @@ class MainActivity : AppCompatActivity() {
      //   setContentView(R.layout.activity_main)  //inflating xml -- parse- mem vars  in RAM
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        Log.i(TAG,"oncreated")
 
         tvMsg = findViewById(R.id.tvMessage)
         etName =  findViewById(R.id.etName)
@@ -33,6 +36,35 @@ class MainActivity : AppCompatActivity() {
             var cost =  binding.costOfService.text.toString()
             binding.tipResult.text = cost
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.e(TAG,"started")
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.w(TAG,"resumed-- restore   the  game state")
+
+    }
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG,"paused--save game state")
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.v(TAG,"stopped")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG,"destroyed  -- release all the  resources")
+
     }
 
     //void clickHandler(View mview){}
