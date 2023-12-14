@@ -123,11 +123,31 @@
 
     <Button
         android:id="@+id/btnAlarm"
-        android:onClick="setAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="setAlarm"
         android:text="alarm"
-        app:layout_constraintBaseline_toBaselineOf="@id/btnLogin"
-        />
+        app:layout_constraintBaseline_toBaselineOf="@id/btnLogin" />
+
+    <TextView
+        android:id="@+id/tvInc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add"
+        android:textSize="25sp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@id/btnInc"
+        app:layout_constraintTop_toBottomOf="@id/btnInc"        tools:layout_editor_absoluteY="555dp" />
+
+    <Button
+        android:id="@+id/btnInc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="increment"
+        android:layout_marginTop="20dp"
+        android:onClick="increment"
+        app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintStart_toEndOf  = "@id/cost_of_service"
+        tools:layout_editor_absoluteY="494dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

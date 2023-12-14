@@ -109,4 +109,10 @@ class MainActivity : AppCompatActivity() {
     fun setAlarm(view: View) {
         createAlarm("B5 STANDARD",11,46)
     }
+    var no = 0
+
+    fun increment(view: View) {
+        ++no
+        binding.tvInc.text = no.toString()
+    }
 }
