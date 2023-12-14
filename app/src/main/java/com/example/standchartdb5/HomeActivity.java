@@ -1,19 +1,28 @@
 package com.example.standchartdb5;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.standchartdb5.databinding.ActivityHomeBinding;
+
 public class HomeActivity extends AppCompatActivity {
     TextView wTextview;
+    ActivityHomeBinding homeBinding;
+    String[]  countries = {"india","usa","uk","australia"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        wTextview = findViewById(R.id.tvWelcome);
+        homeBinding = ActivityHomeBinding.inflate(getLayoutInflater());
+        setContentView(homeBinding.getRoot());
+       /* setContentView(R.layout.activity_home);
+        wTextview = findViewById(R.id.tvWelcome);*/
+        //RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
         //getintent -- inntent which started this activity
-        String dataName = getIntent().getStringExtra("nkey");
-        wTextview.setText(dataName);
+       /* String dataName = getIntent().getStringExtra("nkey");
+        wTextview.setText(dataName);*/
     }
 }
