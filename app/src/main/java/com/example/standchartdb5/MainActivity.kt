@@ -11,11 +11,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.standchartdb5.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),LifecycleOwner {
     var TAG = MainActivity::class.java.simpleName
         //"MainActivity"
     //TextView tvMsg;
@@ -66,6 +68,10 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.e(TAG,"started")
+        //activity to observer
+     mainViewModel.seconds().observe(this, Observer {
+         binding.tvInc.text  = it.toString()
+     })
 
     }
 
@@ -124,7 +130,8 @@ class MainActivity : AppCompatActivity() {
     //var no = 0
 
     fun increment(view: View) {
-        mainViewModel.addNumber()
-        binding.tvInc.text = mainViewModel.number.toString()
+       // mainViewModel.addNumber()
+        mainViewModel.startTimer()
+        //binding.tvInc.text = mainViewModel._seconds.value.toString()
     }
 }
