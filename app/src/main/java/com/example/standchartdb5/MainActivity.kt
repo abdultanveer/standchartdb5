@@ -10,6 +10,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.example.standchartdb5.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var tvMsg: TextView
     lateinit var etName: EditText
     lateinit var binding: ActivityMainBinding
+    lateinit var mainViewModel: MainViewModel
    // lateinit var calcButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +34,14 @@ class MainActivity : AppCompatActivity() {
 
         tvMsg = findViewById(R.id.tvMessage)
         etName =  findViewById(R.id.etName)
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+      /* mainViewModel =  MainViewModel by viewModels<MainViewModel>{
+           MainViewModelFactory()
+
+       }*/
+        //mainViewModel = ViewModelProvider.AndroidViewModelFactory(this.application).create(MainViewModel::class.java)
+        binding.tvInc.text = mainViewModel.number.toString()
+
        // calcButton = findViewById(R.id.calculate_button)
        // calcButton.setOnClickListener {  }
         binding.calculateButton.setOnClickListener {
@@ -109,10 +121,10 @@ class MainActivity : AppCompatActivity() {
     fun setAlarm(view: View) {
         createAlarm("B5 STANDARD",11,46)
     }
-    var no = 0
+    //var no = 0
 
     fun increment(view: View) {
-        ++no
-        binding.tvInc.text = no.toString()
+        mainViewModel.addNumber()
+        binding.tvInc.text = mainViewModel.number.toString()
     }
 }
